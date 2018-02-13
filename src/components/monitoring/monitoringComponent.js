@@ -4,14 +4,15 @@ class Monitoring extends Component {
     constructor(props, context) {
         super(props, context)
         this.state = {
-            isAlive: false
+            isAlive: props.isAlive || false
         }
     }
 
     render() {
+        const serverStatus = this.state.isAlive ? "ALIVE" : "NOT ALIVE"
         return (
             <div className="Monitoring">
-            <p>Server is(/is not) alive</p>
+            <p>Server is {serverStatus}</p>
             </div>)
     }
 }

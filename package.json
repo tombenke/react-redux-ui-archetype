@@ -31,7 +31,6 @@
     "lodash": "^4.17.4",
     "node-uuid": "^1.4.7",
     "react": "^16.0.0",
-    "react-bootstrap": "^0.31.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "monitoring-ui-store": "git+https://github.com/tombenke/monitoring-ui-store.git",
@@ -62,11 +61,11 @@
     ]
   },
   "scripts": {
-    "lint": "eslint lib/**.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive 'lib/**/*.spec.js'",
-    "watch": "watchify lib/app.js -o dist/js/bundle.js -v",
-    "browserify": "browserify lib/app.js | uglifyjs > dist/js/bundle.js",
-    "build-js": "browserify -t [babelify] lib/app.jsx > dist/js/bundle.js",
+    "lint": "eslint src/**.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive 'src/**/*.spec.js'",
+    "watch": "watchify src/app.js -o dist/js/bundle.js -v",
+    "browserify": "browserify src/app.js | uglifyjs > dist/js/bundle.js",
+    "build-js": "browserify -t [babelify] src/app.jsx > dist/js/bundle.js",
     "build": "npm run browserify;",
     "style": "cp -r ../bootstrap/dist/css/* dist/css/; cp -r ../bootstrap/dist/fonts/* dist/fonts/; cp -r ../bootstrap/dist/js/bootstrap* dist/js/; cp node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css dist/css/"
   },
