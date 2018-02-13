@@ -62,4 +62,4 @@ converters:
         - package.json
         - README.md
         - LICENSE.md
-        - dist/index.html
+        - content/private/index.html

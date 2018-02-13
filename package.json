@@ -27,43 +27,43 @@
   "bin": {},
   "main": "index.js",
   "dependencies": {
+    "ajv": "6.1.1",
+    "monitoring-ui-store": "git+https://github.com/tombenke/monitoring-ui-store.git",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-redux": "^5.0.6",
-    "monitoring-ui-store": "git+https://github.com/tombenke/monitoring-ui-store.git"
+    "react-redux": "^5.0.6"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babelify": "^7.2.0",
-    "browserify": "^12.0.1",
-    "pre-push": "^0.1.1",
-    "eslint": "^3.10.2",
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "copy-webpack-plugin": "4.3.1",
+    "css-hot-loader": "1.3.5",
+    "css-loader": "0.28.9",
+    "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.5.1",
-    "reactify": "^1.1.1",
-    "uglify-js": "^2.6.1",
-    "watchify": "^3.6.1"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015",
-            "react"
-          ]
-        }
-      ]
-    ]
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "2.30.1",
+    "node-sass": "4.7.2",
+    "rimraf": "2.6.2",
+    "sass-loader": "6.0.6",
+    "source-list-map": "2.0.0",
+    "style-loader": "0.19.1",
+    "uglify-js": "3.3.7",
+    "url-loader": "0.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.9.7"
   },
   "scripts": {
-    "lint": "eslint src/**.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive 'src/**/*.spec.js'",
-    "watch": "watchify src/app.js -o dist/js/bundle.js -v",
-    "browserify": "browserify src/app.js | uglifyjs > dist/js/bundle.js",
-    "build-js": "browserify -t [babelify] src/app.jsx > dist/js/bundle.js",
-    "build": "npm run browserify;"
+    "lint": "eslint src/**/*.js",
+    "dev": "webpack -d --progress --watch --profile --json > compilation-stats.json --env.dev",
+    "start": "webpack-dev-server --progress --color --inline --env.dev",
+    "build": "webpack -p --progress --env.prod",
+    "clean": "rimraf ./dist"
   },
   "pre-push": [
   ]
