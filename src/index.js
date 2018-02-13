@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { getStore } from 'monitoring-ui-store'
 
 //import {HashRouter, Route, Switch} from 'react-router-dom';
 
-/*
 // Styles
 // Import Flag Icons Set
 import 'flag-icon-css/css/flag-icon.min.css';
@@ -18,7 +18,6 @@ import '../scss/style.scss'
 // Temp fix for reactstrap
 import '../scss/core/_dropdown-menu-right.scss'
 import 'ajv'
-*/
 
 // Containers
 import Main from './components/main'
@@ -27,7 +26,11 @@ const store = getStore()
 
 ReactDOM.render(
     <Provider store={ store }>
-        <Main />
+        <HashRouter>
+            <Switch>
+                <Route path="/" name="Home" component={Main}/>
+            </Switch>
+        </HashRouter>
     </Provider>,
     document.getElementById('root')
 )
