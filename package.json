@@ -1,0 +1,75 @@
+{
+  "name": "{{package_name}}",
+  "description": "{{package_description}}",
+  "version": "1.0.0",
+  "tags": [
+    "web",
+    "ui",
+    "react",
+    "redux"
+  ],
+  "author": {
+    "name": "{{author_full_name}}",
+    "email": "{{author_email}}"
+  },
+  "bugs": {
+    "url": "https://github.com/{{author_github_account}}/{{package_name}}/issues"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/{{author_github_account}}/{{package_name}}",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/{{author_github_account}}/{{package_name}}.git"
+  },
+  "engines": {
+    "node": "^6.11.2"
+  },
+  "bin": {},
+  "main": "index.js",
+  "dependencies": {
+    "history": "^4.6.3",
+    "lodash": "^4.17.4",
+    "node-uuid": "^1.4.7",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "monitoring-ui-store": "git+https://github.com/tombenke/monitoring-ui-store.git",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "pre-push": "^0.1.1",
+    "eslint": "^3.10.2",
+    "reactify": "^1.1.1",
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.6.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "lint": "eslint lib/**.js",
+    "test": "cross-env NODE_ENV=test mocha --recursive 'lib/**/*.spec.js'",
+    "watch": "watchify lib/app.js -o dist/js/bundle.js -v",
+    "browserify": "browserify lib/app.js | uglifyjs > dist/js/bundle.js",
+    "build-js": "browserify -t [babelify] lib/app.jsx > dist/js/bundle.js",
+    "build": "npm run browserify;",
+    "style": "cp -r ../bootstrap/dist/css/* dist/css/; cp -r ../bootstrap/dist/fonts/* dist/fonts/; cp -r ../bootstrap/dist/js/bootstrap* dist/js/; cp node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css dist/css/"
+  },
+  "pre-push": [
+  ]
+}
