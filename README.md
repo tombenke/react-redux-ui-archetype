@@ -4,7 +4,7 @@
 ## About
 
 It is a minimalistic react frontend, using webkit for build.
-Static Boostrap 3 CSS and JS files are included.
+reactstrap with Boostrap 4 SCSS and JS files are included.
 
 {{package_description}}
 
